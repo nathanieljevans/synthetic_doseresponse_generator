@@ -1,0 +1,10 @@
+
+name: my-enviromnent
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - datetime
