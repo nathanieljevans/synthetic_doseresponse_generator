@@ -5,3 +5,23 @@ Interactive notebook:
             [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nathanieljevans/synthetic_doseresponse_generator/master?filepath=.%2FSynthetic_DR_generator.ipynb)
 
 ![example_output](./figures/example.PNG)
+
+
+# data dictionary 
+
+> `DOSE_XXX`: cell_viability value [0,1] for the dose point XXX. 
+
+> `b`: hermetic model intercept 
+
+> `m`: hermetic model slope
+
+> `b0`: logistic regression parameter 
+
+> `b1`: logistic regression parameter
+
+> `s`: sampling noise
+
+> `t`: hermetic transition point 
+
+> `id`: unique identifier for each transition
+
