@@ -3,4 +3,4 @@ This repo contains the methods necessary to simulate hermetic dose-response curv
 
 Interactive notebook: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nathanieljevans/synthetic_doseresponse_generator/master?filepath=.%2FSynthetic_DR_generator.ipynb)
 
-![example_output](./figure/example.PNG)
+![example_output](./figures/example.PNG)
