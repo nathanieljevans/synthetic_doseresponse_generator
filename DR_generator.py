@@ -168,7 +168,8 @@ class hermetic_generator:
             b1 = np.random.uniform(low = min(self.b1range), high=max(self.b1range))
             b0 = np.random.uniform(low = min(self.b0range), high=max(self.b0range))
             m = np.random.uniform(low = min(self.mrange), high = max(self.mrange))
-            obs = self.__generate(t,b1,b0,m,n=nn, plot=plot).assign(id='%s_%s_%d' %(str(state[0]), str(datetime.datetime.now().time()), nn))
+            obs = self.__generate(t,b1,b0,m,n=nn, plot=plot)
+            obs = obs.assign(id=[hash(f'{t}{b1}{b0}{m}{x}{nn}') for x in obs.values])
             dat = obs if first else dat.append(obs, ignore_index=True)
             if first: first = False
 
