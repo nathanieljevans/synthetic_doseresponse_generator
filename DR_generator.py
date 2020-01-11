@@ -62,7 +62,6 @@ class hermetic_generator:
 
             inputs
                 s <float> standard deviation for gaussian noise model
-                rrange <tuple, floats> should be negative, the allowed range of values to choose for r in the inhibitory logistic equation
                 dose_points <list> the concentration points to sample at. First value should always be zero.
                 mrange <tuple, floats> must be positive, allowed range of values to choose for m in the hermetic model
                 b0range <tuple, float> range of acceptable b0's to sample from
@@ -142,7 +141,7 @@ class hermetic_generator:
 
         inputs
             n <int> number of independant dose-response models to sample from
-            nn <int> number of observations from each model to return
+            nn <int> number of replicates; number of observations drawn at each dose
 
         outputs
              dr <pandas dataframe> columns with names ['id', t', 'b1', 'b0', 'm', 'b', *self.dose_points]
@@ -150,12 +149,6 @@ class hermetic_generator:
                  [id <str>: seed_time_nn]                         _____________________/ \____________________
                                                                  / cell viablity values [0,1] over dose points \
 
-        UH OH... hitting a few issues:
-
-            Need to add a min inhibitory value, I suspec that'll be important in defining curve shape.
-            [DONE] THIRD: need to make sure Ph(c=max_dose) <= 1, can't have huge numbers...Switch to using positive sigmoid for hermetic model? Kept it linear, used max of 1.
-            [DONE] FOURTH: doses are log10 distributed so transition point t should maybe be sampled with log weights as well! or ... should it? kind of explains the proportion of tail occurence...
-            [DONE] FIFTH: My logistic and linear models usually are fit in the log space, so I should really be doing the same here, right? look into that.
         '''
 
         first = True
